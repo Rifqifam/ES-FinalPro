@@ -38,6 +38,8 @@ For every update in libraries please run this code afterward
 ```bash
     pip freeze > requirements.txt
 ```
-    
+
+To Develop other backend enquiries (Expert System Model, ML Model dll)
+Bikin folder baru aja di dalem 'ES-FinalPro'
 
 
