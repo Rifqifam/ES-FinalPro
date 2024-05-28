@@ -27,7 +27,7 @@ Install these requirements using pip install
 - django
 - django-ninja
 
-make sure to cd to 'eesninja' containing manage.py
+make sure to cd to 'ES-FinalPro' containing manage.py
 
 Run the app
 ```bash
