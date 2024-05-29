@@ -18,4 +18,3 @@ class ChatNode(models.Model):
     def __str__(self):
         return f"{self.sender} - {self.date_sent}"
 
-
