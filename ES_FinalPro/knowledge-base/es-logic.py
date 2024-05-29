@@ -8,58 +8,42 @@ def backward_chaining(symptoms):
     possible_diseases = []
     
     for disease, info in diseases.items():
-        match = True
-        for symptom, value in info['symptoms'].items():
-            if symptoms.get(symptom) != value:
-                match = False
-                break
-        if match:
-            possible_diseases.append(disease)
-    
-    return possible_diseases
-
-def calculate_symptom_match_percentage(symptoms):
-    results = {}
-    
-    for disease, info in diseases.items():
+        match_count = 0
         total_symptoms = len(info['symptoms'])
-        matched_symptoms = 0
         
         for symptom, value in info['symptoms'].items():
-            if symptom in input_symptoms and input_symptoms[symptom] == value:
-                matched_symptoms += 1
+            if symptoms.get(symptom) == value:
+                match_count += 1
         
-        percentage_match = (matched_symptoms / total_symptoms) * 100
-        results[disease] = percentage_match
+        if match_count > 0:  # Only consider diseases with at least one matching symptom
+            possible_diseases.append((disease, match_count / total_symptoms * 100))
     
-    return results
+    return sorted(possible_diseases, key=lambda x: x[1], reverse=True)
+
 
 # Example symptoms input
 input_symptoms = {
     "Weight_Loss": False,
-    "Muscle_Loss": True,
+    "Muscle_Loss": False,
     "Lethargy": True,
-    "Appetite_Loss": True,
-    "Vomit": False,
-    "Cough": False,
+    "Appetite_Loss": False,
+    "Vomit": True,
+    "Cough": True,
     "Weak": True,
-    "Tremor": True,
+    "Tremor": False,
     "Open_Mouth_Breathing": True,
-    "Rapid_Breathing": False,
-    "Labored_Breathing": False,
-    "Rapid_Heartbeat": False,
-    "Weak_Pulse": False,
+    "Rapid_Breathing": True,
+    "Labored_Breathing": True,
+    "Rapid_Heartbeat": True,
+    "Weak_Pulse": True,
     "Bad_Breath": False,
     "Messy_Fur": False,
-    "Frequent_Urination": True
+    "Frequent_Urination": False
 }
 
 # Determine the disease
 result_backwardchaining = backward_chaining(input_symptoms)
-result_percentage = calculate_symptom_match_percentage(input_symptoms)
+# result_percentage = calculate_symptom_match_percentage(input_symptoms)
 
 # Output the result
 print("Possible diseases:", result_backwardchaining)
-
-for disease, percentage in result_percentage.items():
-    print(f"{disease}: {percentage:.2f}% match")
