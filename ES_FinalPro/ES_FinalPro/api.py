@@ -1,6 +1,8 @@
-from ninja import NinjaAPI
+from ninja import NinjaAPI, File
 from ninja.errors import HttpError
+from ninja.files import UploadedFile
 from chatroom.models import ChatNode, ChatRoom
+from .models import model, predict
 
 
 expert_API = NinjaAPI()
@@ -47,3 +49,8 @@ def add_chat_node(request, chat_room_id: int, sender: str, message: str):
         'date_sent': chat_node.date_sent,
         'chat_room_id': chat_room_id
     }
+
+@expert_API.post("/predict/")
+def predict_image(request, file: UploadedFile = File(...)):
+    predicted_class, confidence_score = predict(model, file)
+    return {"predicted_class": predicted_class, "confidence_score": confidence_score}
