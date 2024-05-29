@@ -32,13 +32,15 @@ def add_chat_node(request, chat_room_id: int, sender: str, message: str):
     try:
         chat_room = ChatRoom.objects.get(id=chat_room_id)
     except ChatRoom.DoesNotExist:
-        raise HttpError(404, f"ChatRoom with id {chat_room_id} does not exist")
-
-    chat_node = ChatNode.objects.create(
-        sender=sender,
-        message=message,
-        chat_room=chat_room
-    )
+        # Create a new ChatRoom if it does not exist
+        chat_room = ChatRoom.objects.create(
+            title=f"New Chat Room {chat_room_id}"
+        )
+        chat_node = ChatNode.objects.create(
+            sender=sender,
+            message=message,
+            chat_room=chat_room
+        )
 
     return {
         'id': chat_node.id,
