@@ -1,0 +1,107 @@
+{
+    "Spinal Muscular Atrophy (SMA)": {
+        "Complexity": 6,
+        "symptoms": {
+            "Weight_Loss": true,
+            "Muscle_Loss": true,
+            "Lethargy": true,
+            "Appetite_Loss": false,
+            "Vomit": false,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": true,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        } 
+    },
+    "Hypertrophic Cardiomyopathy (HCM)": {
+        "Complexity": 10,
+        "symptoms": {
+            "Weight_Loss": false,
+            "Muscle_Loss": false,
+            "Lethargy": true,
+            "Appetite_Loss": false,
+            "Vomit": true,
+            "Cough": true,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": true,
+            "Rapid_Breathing": true,
+            "Labored_Breathing": true,
+            "Rapid_Heartbeat": true,
+            "Weak_Pulse": true,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        } 
+    },
+    "Hip Dysplasia": {
+        "complexity": 4,
+        "symptoms": {
+            "Weight_Loss": false,
+            "Muscle_Loss": true,
+            "Lethargy": true,
+            "Appetite_Loss": false,
+            "Vomit": false,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        } 
+    },
+    "Stomatitis": {
+        "complexity": 6,
+        "symptoms": {
+            "Weight_Loss": true,
+            "Muscle_Loss": false,
+            "Lethargy": false,
+            "Appetite_Loss": true,
+            "Vomit": false,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": true,
+            "Messy_Fur": true,
+            "Frequent_Urination": true
+        } 
+    },
+    "Polycystic Kidney Disease (PKD)": {
+        "complexity": 6,
+        "symptoms": {
+            "Weight_Loss": true,
+            "Muscle_Loss": false,
+            "Lethargy": true,
+            "Appetite_Loss": true,
+            "Vomit": true,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        } 
+    }
+}
