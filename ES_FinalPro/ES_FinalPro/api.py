@@ -6,7 +6,6 @@ from chatroom.models import ChatNode, ChatRoom, User
 from django.db import transaction
 from django.shortcuts import get_object_or_404
 
-
 #  UTIL FUNCTIONS
 
 def extract_chat_room_id(title):
@@ -16,7 +15,25 @@ def extract_chat_room_id(title):
     else:
         return None
 
-expert_API = NinjaAPI()
+expert_API = NinjaAPI(
+    title="Chatroom API",
+    description="""
+    Welcome to the Chatroom API documentation.
+    
+    This API allows users to:
+    - Manage user accounts
+    - Create and manage chat rooms
+    - Send and receive messages within chat rooms
+    
+    So basically how this works is that
+    1. User Create an account by inputting username and password
+    2. Then User Login with username and password which returns user_id
+    3. This user_id would be save in local storage as a way to authenticate the user chatrooms
+
+    Use the endpoints below to interact with the API.
+    """
+)
+
 
 # Create separate routers
 chatroom_router = Router(tags=["chat-rooms"])
