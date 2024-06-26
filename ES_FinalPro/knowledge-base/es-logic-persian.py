@@ -20,6 +20,16 @@ def backward_chaining(symptoms):
     
     return sorted(possible_diseases, key=lambda x: x[1], reverse=True)
 
+def get_highest_probability_disease_with_treatment(symptoms):
+    possible_diseases = backward_chaining(symptoms)
+    if not possible_diseases:
+        return "No diseases match the provided symptoms."
+    
+    highest_probability_disease = possible_diseases[0]
+    disease_name = highest_probability_disease[0]
+    treatment = diseases[disease_name]["treatment"]
+    return treatment
+
 
 # Example symptoms input
 input_symptoms = {
@@ -67,3 +77,4 @@ result_backwardchaining = backward_chaining(input_symptoms)
 
 # Output the result
 print("Possible diseases:", result_backwardchaining)
+print(get_highest_probability_disease_with_treatment(input_symptoms))

@@ -38,7 +38,8 @@
             "Mouth_Pain": false,
             "Drooling": false,
             "Difficulty_Eating": false
-        }
+        },
+        "treatment": "Management of symptoms, special renal diet, fluid therapy, medications to control blood pressure, and regular monitoring."
     },
     "Hypertrophic Cardiomyopathy (HCM)": {
         "Complexity": 7,
@@ -79,7 +80,8 @@
             "Mouth_Pain": false,
             "Drooling": false,
             "Difficulty_Eating": false
-        }
+        },
+        "treatment": "Medications to improve heart function, low-sodium diet, and regular veterinary check-ups."
     },
     "Progressive Retinal Atrophy (PRA)": {
         "Complexity": 6,
@@ -120,7 +122,8 @@
             "Mouth_Pain": false,
             "Drooling": false,
             "Difficulty_Eating": false
-        }
+        },
+        "treatment": "There is no cure, but management includes providing a safe environment to prevent injury and regular veterinary check-ups."
     },
     "Respiratory Issues (Brachycephalic Airway Syndrome)": {
         "Complexity": 7,
@@ -161,7 +164,8 @@
             "Mouth_Pain": false,
             "Drooling": false,
             "Difficulty_Eating": false
-        }
+        },
+        "treatment": "Weight management, avoiding stress and hot environments, and possibly surgical correction of airway abnormalities."
     },
     "Dental Disease": {
         "Complexity": 6,
@@ -202,6 +206,7 @@
             "Mouth_Pain": true,
             "Drooling": true,
             "Difficulty_Eating": true
-        }
+        },
+        "treatment": "Professional dental cleaning, tooth extractions if necessary, antibiotics for infection, and regular dental check-ups."
     }
 }

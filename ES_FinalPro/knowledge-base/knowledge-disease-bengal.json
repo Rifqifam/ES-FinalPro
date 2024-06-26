@@ -27,7 +27,8 @@
             "High_Blood_Glucose_Levels": false,
             "Fatigue": false,
             "Muscle_Twitching": false
-        }
+        },
+        "treatment": "Medications to improve heart function, low-sodium diet, and regular veterinary check-ups."
     },
     "Progressive Retinal Atrophy (PRA)": {
         "Complexity": 6,
@@ -57,7 +58,8 @@
             "High_Blood_Glucose_Levels": false,
             "Fatigue": false,
             "Muscle_Twitching": false
-        }
+        },
+        "treatment": "This is a very serious disease, please consult to a Vet immediately."
     },
     "Chronic Renal Failure (CRF)": {
         "Complexity": 7,
@@ -87,7 +89,8 @@
             "High_Blood_Glucose_Levels": false,
             "Fatigue": false,
             "Muscle_Twitching": false
-        }
+        },
+        "treatment": "Management of symptoms, special renal diet, fluid therapy, medications to control blood pressure, and regular monitoring."
     },
     "Lymphoma": {
         "Complexity": 8,
@@ -117,7 +120,8 @@
             "High_Blood_Glucose_Levels": false,
             "Fatigue": false,
             "Muscle_Twitching": false
-        }
+        },
+        "treatment": "Chemotherapy, supportive care, and possibly radiation therapy depending on the type and stage of lymphoma."
     },
     "Diabetes": {
         "Complexity": 6,
@@ -142,6 +146,7 @@
             "High_Blood_Glucose_Levels": true,
             "Fatigue": true,
             "Muscle_Twitching": true
-        }
+        },
+        "treatment": "Insulin therapy, a special diet, regular blood glucose monitoring, and regular veterinary check-ups."
     }
 }
