@@ -1,0 +1,58 @@
+{
+    "feature": "Weight",
+    "children": {
+      "Weight-Loss": {
+        "feature": "Weight Loss",
+        "children": {
+          "Yes": {
+            "feature": "Muscle Loss",
+            "children": {
+                "Yes": {
+                  "feature": "Posture",
+                  "children": {
+                    "Normal": {
+                        "feature": "Lethargy",
+                        "children": {
+                            "Yes": {
+                                "feature": "Appetite",
+                                "children": {
+                                    "Loss":{
+                                        "feature": "Vomit",
+                                        "children": {
+                                            "Yes": {
+                                                "feature": "Cough",
+                                                "children": {
+                                                    ""
+                                                }
+                                            }
+                                        }
+
+                                    }
+
+                                },
+                            "No": {
+
+                            }
+                            }
+                        }
+                    },
+                    "No": {
+
+                    }
+                  }
+                },
+                "No": {
+                  "decision": "Yes"
+                }
+              }
+          },
+          "No": {
+            "decision": "Yes"
+          }
+        }
+      },
+      "No-Weight-Loss": {
+        "decision": "Yes"
+      }
+    }
+  }

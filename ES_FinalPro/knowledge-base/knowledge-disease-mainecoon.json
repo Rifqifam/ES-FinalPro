@@ -1,0 +1,112 @@
+{
+    "Spinal Muscular Atrophy (SMA)": {
+        "Complexity": 6,
+        "symptoms": {
+            "Weight_Loss": true,
+            "Muscle_Loss": true,
+            "Lethargy": true,
+            "Appetite_Loss": false,
+            "Vomit": false,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": true,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        },
+        "treatment": "Supportive care, physical therapy, and medications to manage symptoms."
+    },
+    "Hypertrophic Cardiomyopathy (HCM)": {
+        "Complexity": 10,
+        "symptoms": {
+            "Weight_Loss": false,
+            "Muscle_Loss": false,
+            "Lethargy": true,
+            "Appetite_Loss": false,
+            "Vomit": true,
+            "Cough": true,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": true,
+            "Rapid_Breathing": true,
+            "Labored_Breathing": true,
+            "Rapid_Heartbeat": true,
+            "Weak_Pulse": true,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        },
+        "treatment": "Medications to improve heart function, low-sodium diet, and regular veterinary check-ups."
+    },
+    "Hip Dysplasia": {
+        "complexity": 4,
+        "symptoms": {
+            "Weight_Loss": false,
+            "Muscle_Loss": true,
+            "Lethargy": true,
+            "Appetite_Loss": false,
+            "Vomit": false,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        },
+        "treatment": "Weight management, physical therapy, pain relief medications, and possibly surgery (Please consult to a vet)."
+    },
+    "Stomatitis": {
+        "complexity": 6,
+        "symptoms": {
+            "Weight_Loss": true,
+            "Muscle_Loss": false,
+            "Lethargy": false,
+            "Appetite_Loss": true,
+            "Vomit": false,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": true,
+            "Messy_Fur": true,
+            "Frequent_Urination": true
+        },
+        "treatment": "Dental cleaning, antibiotics, anti-inflammatory medications, and in severe cases, tooth extraction. Please consult to a Vet."
+    },
+    "Polycystic Kidney Disease (PKD)": {
+        "complexity": 6,
+        "symptoms": {
+            "Weight_Loss": true,
+            "Muscle_Loss": false,
+            "Lethargy": true,
+            "Appetite_Loss": true,
+            "Vomit": true,
+            "Cough": false,
+            "Weak": true,
+            "Tremor": false,
+            "Open_Mouth_Breathing": false,
+            "Rapid_Breathing": false,
+            "Labored_Breathing": false,
+            "Rapid_Heartbeat": false,
+            "Weak_Pulse": false,
+            "Bad_Breath": false,
+            "Messy_Fur": false,
+            "Frequent_Urination": true
+        },
+        "treatment": "Management of symptoms, special diet, medications to control high blood pressure, and regular monitoring. Please consult to a Vet."
+    }
+}
