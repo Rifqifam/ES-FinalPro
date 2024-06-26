@@ -61,5 +61,5 @@ result_backwardchaining = backward_chaining(input_symptoms)
 # result_percentage = calculate_symptom_match_percentage(input_symptoms)
 
 # Output the result
-print("Possible diseases:", result_backwardchaining)
-print(get_highest_probability_disease_with_treatment(input_symptoms))
+# print("Possible diseases:", result_backwardchaining)
+# print(get_highest_probability_disease_with_treatment(input_symptoms))

@@ -1,4 +1,6 @@
 import re
+import google.generativeai as genai
+import json
 from ninja import NinjaAPI, Router, File
 from ninja.errors import HttpError
 from ninja.files import UploadedFile
@@ -8,6 +10,7 @@ from django.shortcuts import get_object_or_404
 from typing import Optional
 from .models import model, predict
 from .knowledge_base import parent_function as pf
+from .resource_manager import resource_manager
 
 #  UTIL FUNCTIONS
 
@@ -212,12 +215,29 @@ def delete_user(request, user_id: int):
     
 @prediction_router.post("/predict/")
 def predict_image(request, file: UploadedFile = File(...)):
-    # Class 0: Maine_Coon
-    # Class 1: Bengal
+    # Class 0: Bengal
+    # Class 1: Maine Coon
     # Class 2: Persian
     # Class 3: Unknown
     predicted_class, confidence_score = predict(model, file)
     return {"predicted_class": predicted_class, "confidence_score": confidence_score}
+
+@prediction_router.post("/symptoms/")   
+def get_symptoms(request, breed:str, symptoms:str):
+    try:
+        query = f"You have to extract only the symptoms that are in this list {list(resource_manager.predefined_symptoms[breed].keys())}. This is what the owner got to say regarding the condition of the cat: {symptoms}. The output should be the list of symtomps separated by a coma and without any extra special characters. If you don't think that there is any symptoms that matches the list, return Null"
+        model_response = resource_manager.gemini_model.generate_content(query)
+        reported_symptoms = [symptom.strip() for symptom in model_response.text.split(",")]
+    
+        symptoms_dict = {symptom: False for symptom in resource_manager.predefined_symptoms[breed].keys()}
+        
+        for symptom in reported_symptoms:
+            if symptom in symptoms_dict:
+                symptoms_dict[symptom] = True
+
+        return {"symptoms": symptoms_dict}
+    except:
+        raise HttpError(500, "Internal Server Error") 
     
 
 @prediction_router.get("/result/")

@@ -27,7 +27,7 @@ model = torchvision.models.resnet50(pretrained=True).to(device)
 model.fc = ModelHead(2048, 1024, 12)
 model.fc.to(device)
 
-MODEL_SAVE_PATH = '../checkpoints/best_checkpoint.pth'
+MODEL_SAVE_PATH = '../data/best_checkpoint.pth'
 model.load_state_dict(torch.load(MODEL_SAVE_PATH, map_location=device))
 model.eval()
 
