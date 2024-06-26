@@ -1,10 +1,13 @@
 import re
-from ninja import NinjaAPI, Router
+from ninja import NinjaAPI, Router, File
 from ninja.errors import HttpError
 from ninja.files import UploadedFile
 from chatroom.models import ChatNode, ChatRoom, User
 from django.db import transaction
 from django.shortcuts import get_object_or_404
+from typing import Optional
+from .models import model, predict
+from .knowledge_base import parent_function as pf
 
 #  UTIL FUNCTIONS
 
@@ -38,11 +41,61 @@ expert_API = NinjaAPI(
 # Create separate routers
 chatroom_router = Router(tags=["chat-rooms"])
 user_router = Router(tags=["users"])
+prediction_router = Router(tags=["prediction"])
 
-@expert_API.get("/hello")
+
+input_symptoms_bengal = {
+    "Weight_Loss": True,
+            "Muscle_Loss": True,
+            "Lethargy": True,
+            "Appetite_Loss": True,
+            "Vomit": True,
+            "Cough": False,
+            "Weak": True,
+            "Tremor": True,
+            "Open_Mouth_Breathing": False,
+            "Rapid_Breathing": False,
+            "Labored_Breathing": False,
+            "Rapid_Heartbeat": False,
+            "Weak_Pulse": False,
+            "Bad_Breath": True,
+            "Messy_Fur": False,
+            "Frequent_Urination": False,
+            "Diarrhea": True,
+            "Blindness": False,
+            "Night_Blindness": False,
+            "Increased_Thirst": False,
+            "Seizures": False,
+            "Blood_in_Urine": False,
+            "High_Blood_Glucose_Levels": False,
+            "Fatigue": False,
+            "Muscle_Twitching": True
+}
+
+input_symptoms_mainecoon = {
+    "Weight_Loss": False,
+    "Muscle_Loss": False,
+    "Lethargy": True,
+    "Appetite_Loss": False,
+    "Vomit": True,
+    "Cough": True,
+    "Weak": True,
+    "Tremor": False,
+    "Open_Mouth_Breathing": True,
+    "Rapid_Breathing": True,
+    "Labored_Breathing": True,
+    "Rapid_Heartbeat": True,
+    "Weak_Pulse": True,
+    "Bad_Breath": False,
+    "Messy_Fur": False,
+    "Frequent_Urination": False
+}
+
+
+@expert_API.get("/test")
 def hello(request):
-    return "Hello world"
-
+    return "Hello World"
+  
 @chatroom_router.get("/{chat_room_id}/chat-nodes/")
 def chat_nodes_in_chat_room(request, chat_room_id: int, user_id:int):
     # Retrieve all ChatNode instances for the specified ChatRoom id
@@ -80,9 +133,9 @@ def get_chat_rooms(request, user_id:int):
     ]
     return data
 
-@chatroom_router.post("/{chat_room_id}/chat-nodes/add")
+@chatroom_router.post("/chat-nodes/add")
 @transaction.atomic  # Ensures that the operations are atomic
-def add_chat_node(request, chat_room_id: int, sender: str, message: str, user_id : int):
+def add_chat_node(request, sender: str, message: str, user_id : int, chat_room_id: Optional[int] = 99):
     chat_room_title = f"Chat Room - {chat_room_id}"
     user = get_object_or_404(User, user_id=user_id)
     try:
@@ -108,6 +161,7 @@ def add_chat_node(request, chat_room_id: int, sender: str, message: str, user_id
         'date_sent': chat_node.date_sent,
         'chat_room_id': chat_room.id
     }
+
 ## USER ENDPOINTS ##
 
 @user_router.post("/signup/")
@@ -156,6 +210,24 @@ def delete_user(request, user_id: int):
     except User.DoesNotExist:
         raise HttpError(404, "User not found")
     
+@prediction_router.post("/predict/")
+def predict_image(request, file: UploadedFile = File(...)):
+    # Class 0: Maine_Coon
+    # Class 1: Bengal
+    # Class 2: Persian
+    # Class 3: Unknown
+    predicted_class, confidence_score = predict(model, file)
+    return {"predicted_class": predicted_class, "confidence_score": confidence_score}
+    
 
-expert_API.add_router("/chat-rooms/", chatroom_router)
+@prediction_router.get("/result/")
+def result_cat_disease(request, cat_type:str):
+    answer1, answer2 = pf.parent_function(cat_type, input_symptoms_mainecoon )    
+
+    return {"diseases" : answer1, "treatment" : answer2}    
+
+
+
 expert_API.add_router("/users/", user_router)
+expert_API.add_router("/chat-rooms/", chatroom_router)
+expert_API.add_router("/prediction/", prediction_router)

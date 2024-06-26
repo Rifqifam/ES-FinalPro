@@ -1,7 +1,12 @@
 import json
+import os
+
+here = os.path.dirname(os.path.abspath(__file__))
+
+filename = os.path.join(here, 'knowledge-disease-mainecoon.json')
 
 # Load the JSON data
-with open('knowledge-disease-mainecoon.json', 'r') as file:
+with open(filename, 'r') as file:
     diseases = json.load(file)
 
 def backward_chaining(symptoms):

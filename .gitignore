@@ -8,6 +8,7 @@ __pycache__/
 
 # Virtual Environment
 ES-Virtual-Env/
+es-env/
 
 # Distribution / packaging
 .Python
