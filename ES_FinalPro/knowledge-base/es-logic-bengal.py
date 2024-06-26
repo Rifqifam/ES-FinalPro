@@ -46,6 +46,17 @@ input_symptoms = {
             "Rapid_Heartbeat": False,
             "Weak_Pulse": False,
             "Bad_Breath": True,
+            "Messy_Fur": False,
+            "Frequent_Urination": False,
+            "Diarrhea": True,
+            "Blindness": False,
+            "Night_Blindness": False,
+            "Increased_Thirst": False,
+            "Seizures": False,
+            "Blood_in_Urine": False,
+            "High_Blood_Glucose_Levels": False,
+            "Fatigue": False,
+            "Muscle_Twitching": True
 }
 
 # Determine the disease
